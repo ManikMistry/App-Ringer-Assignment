@@ -1,0 +1,155 @@
+header{
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    position: sticky;
+}
+header p{
+    font-size: 16px;
+    color: white;
+    margin-right: 35px;
+    font-weight: 600;
+    padding-top: 11px;
+}
+header button{
+    border: none;
+    padding: 13px;
+    background-color: #6161e9;
+    color: white;
+    font-weight: 900;
+    border-radius: 6px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+  
+.review-container {
+  /* display: flex; */
+    height: 114vh;
+    /* width: 100px; */
+    background-color: rgb(80, 79, 79);
+  }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content div {
+    padding: 12px;
+    cursor: pointer;
+  }
+  
+  .dropdown-content div:hover {
+    background-color: #ddd;
+  }
+  main{
+    width: 90%;
+    margin-left: 50px;
+    margin-top: 10px;
+    display: flex;
+  }
+
+  .profile-section{
+    height: 102vh;
+    width: 30%;
+    background-color: #2f2f2f;
+    border-radius: 10px 0px 0px 10px;
+  }
+
+  .profile-detailed-section{
+    width: 70%;
+    background-color:white;
+    padding: 60px;
+    border-radius: 0px 10px 10px 0px;
+  }
+
+  .circle-frame{
+     /* padding: 39px; */
+     padding: 18px 0px 0px 50px;
+  }
+
+  .circle-frame img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .name{
+    color: white;
+    padding-left: 58px;
+    padding-top: 10px;
+  }
+  .designation{
+    color: wheat;
+    padding-left: 77px;
+    padding-top: 3px;
+    font-size: 12px;
+  }
+
+  .details-head{
+    color: white;
+    font-size: 15px;
+    padding-left: 58px;
+    padding-top: 56px;
+  }
+
+  .p-head{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 13px;
+    margin-top: 10px;
+    padding-left: 57px;
+    line-height: 24px;
+  }
+  .p-head .links{
+    color: white;
+    text-decoration: none;
+  }
+  .added-skills {
+    position: relative;
+    padding-bottom: 10px;
+    /* display: inline-block; */
+  }
+
+.profile-detailed-head{
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  padding-top: 29px;
+}
+.Company-Title{
+  padding-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 23px;
+}
+.Job-Title{
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 23px;
+}
+.date{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 23px;
+}
+
+li,.desc,.lang, .Clg-name{
+  font-size: 14px;
+  line-height: 23px;
+  font-weight: 600;
+  color: rgb(93, 93, 93);
+}
+
