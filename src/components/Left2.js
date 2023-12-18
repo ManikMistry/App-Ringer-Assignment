@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Left2.css'
 
-const Left2 = () => {
+const Left2 = ({onExperiencesChange}) => {
   const [experiences, setExperiences] = useState([]);
   const [companyName, setCompanyName] = useState('');
   const [role, setRole] = useState('');
@@ -9,6 +9,9 @@ const Left2 = () => {
   const [endDate, setEndDate] = useState('');
   const [bullets, setBullets] = useState(['', '', '']);
 
+  useEffect(()=>{
+    onExperiencesChange(experiences)
+  },[experiences])
   const handleAddExperience = () => {
     const newExperience = {
       companyName,
@@ -42,19 +45,41 @@ const Left2 = () => {
     <form action='#'>
     <div className='input_box'>
       <span className='datails'>Company Name</span>
-      <input type="text" required value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
+      <input 
+      type="text" 
+      required 
+      value={companyName} 
+      onChange={(e) => setCompanyName(e.target.value)} 
+      />
     </div>
+
     <div className='input_box'>
       <span className='datails'>Role</span>
-      <input type="text" required value={role} onChange={(e) => setRole(e.target.value)} />
+      <input 
+      type="text" 
+      required 
+      value={role} 
+      onChange={(e) => setRole(e.target.value)}
+      />
     </div>
+
     <div className='input_box'>
       <span className='datails'>Start Date</span>
-      <input type="date" required value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+      <input 
+      type="date" 
+      required 
+      value={startDate} 
+      onChange={(e) => setStartDate(e.target.value)} 
+      />
     </div>
     <div className='input_box'>
       <span className='datails'>End Date</span>
-      <input type="date" required value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+      <input 
+      type="date" 
+      required 
+      value={endDate} 
+      onChange={(e) => setEndDate(e.target.value)} 
+      />
     </div>
     <div className='input_box1'>
       <span className='datails'>Add past experience</span>

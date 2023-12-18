@@ -23,9 +23,7 @@ header button{
 }
   
 .review-container {
-  /* display: flex; */
     height: 114vh;
-    /* width: 100px; */
     background-color: rgb(80, 79, 79);
   }
 
@@ -53,15 +51,13 @@ header button{
     background-color: #ddd;
   }
   main{
-    width: 90%;
-    margin-left: 50px;
-    margin-top: 10px;
+    width: 100%;
     display: flex;
   }
 
   .profile-section{
     height: 102vh;
-    width: 30%;
+    width: 25%;
     background-color: #2f2f2f;
     border-radius: 10px 0px 0px 10px;
   }

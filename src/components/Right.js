@@ -2,10 +2,11 @@ import React, { useRef, useState } from "react";
 import { Avatar } from "@mui/material";
 import GradientComponent from "./GradientComponent";
 import "./Right.css";
-// import { html2pdf } from "html2pdf.js";
 import jsPDF from "jspdf";
 
-function Right() {
+function Right({ userData, experiences }) {
+  console.log(userData);
+  console.log(experiences);
   const [showMenu, setShowMenu] = useState(false);
   const resumeRef = useRef(null);
   const handleButtonClick = () => {
@@ -14,10 +15,10 @@ function Right() {
 
   const handleOptionClick = (option) => {
     console.log(`Selected option: ${option}`);
-    const doc = new jsPDF({
-      format: "a4",
-      unit: "px",
-    });
+    // const doc = new jsPDF({
+    //   format: "a4",
+    // });
+    const doc=new jsPDF('portrait', 'pt', 'a4');
     // Adding the fonts.
     doc.setFont("Inter-Regular", "normal");
     doc.html(resumeRef.current, {
@@ -30,7 +31,7 @@ function Right() {
 
   return (
     <>
-      <div ref={resumeRef} className="review-container">
+      <div className="review-container">
         <header>
           <p>
             select templates <span>|</span> - Aa +
@@ -51,36 +52,44 @@ function Right() {
           </div>
           <Avatar />
         </header>
-        <main>
+        <main ref={resumeRef}>
           <div className="profile-section">
             <div className="profile">
-              <div class="circle-frame">
+              <div className="circle-frame">
                 <img
-                  src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  src={userData.avatar}
                   alt="..."
                 />
               </div>
-              <h3 className="name">Sarthak Sharma</h3>
-              <p className="designation">Product Engineer</p>
+              <h3 className="name">{userData.firstName} {userData.lastName}</h3>
+              <p className="designation">{userData.jobTitle}</p>
             </div>
 
             <div className="A-P-E-section">
               <h3 className="details-head">Address</h3>
               <div className="p-head">
-                <p className="current-location">Odisha, India</p>
+                <p className="current-location">{userData.city}, {userData.country}</p>
                 <p className="phone">Phone</p>
-                <p className="ph-no">+91 9078105059</p>
-                <p className="email">xyz@gmail.com</p>
+                <p className="ph-no">+91 {userData.phone}</p>
+                <p className="email">{userData.email}</p>
               </div>
             </div>
 
             <div className="social-links">
               <h3 className="details-head">Links</h3>
               <div className="p-head">
-                <a href="#" className="links">GitHub</a>
-                <a href="#" className="links">LinkedIn</a>
-                <a href="#" className="links">Twiter</a>
-                <a href="#" className="links">LeetCode</a>
+                <a href="#" className="links">
+                  {userData.github}
+                </a>
+                <a href="#" className="links">
+                  {userData.linkedin}
+                </a>
+                <a href="#" className="links">
+                {userData.twitter}
+                </a>
+                <a href="#" className="links">
+                {userData.leetCode}
+                </a>
               </div>
             </div>
 
@@ -108,53 +117,37 @@ function Right() {
           </div>
           <div className="profile-detailed-section">
             <h3 className="profile-detailed-head">Profile</h3>
-            <p className="desc">
-              "I'm Manik, a dedicated Front-end Developer with a passion for
-              creativity and hard work. I'm excited to embark on a new career
-              journey, seeking growth-oriented organizations that challenge me
-              to continually enhance my skills."
-            </p>
+            <p className="desc">{userData.desc}</p>
 
             <h3 className="profile-detailed-head">Experience</h3>
-            <p className="Company-Title">Uber</p>
-            <p className="Job-Title">Software Developer</p>
-            <p className="date">Dec 2013 - Mar 2015</p>
-            <ul>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-            </ul>
-
-            <p className="Company-Title">Uber</p>
-            <p className="Job-Title">Software Developer</p>
-            <p className="date">Dec 2013 - Mar 2015</p>
-            <ul>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-            </ul>
-
-            <p className="Company-Title">Uber</p>
-            <p className="Job-Title">Software Developer</p>
-            <p className="date">Dec 2013 - Mar 2015</p>
-            <ul>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-              <li>Design safty-focused experiences for Rides and Drivers </li>
-            </ul>
+            {experiences.map((experience) => (
+              <>
+                <p className="Company-Title">{experience.companyName}</p>
+                <p className="Job-Title">{experience.role}</p>
+                <p className="date">{experience.startDate} - {experience.endDate}</p>
+                <ul>
+                {experience.bullets.map((bullet)=>(
+                  <li>
+                    {bullet}
+                  </li>
+                ))}                 
+                </ul>
+              </>
+            ))}
 
             <h3 className="profile-detailed-head">Education</h3>
-            <p className="Education-Title">Brown University</p>
-            <p className="Clg-name">Intermidiate, <span>Sep 2010- May 2013</span></p>
+            <p className="Education-Title">{userData.collegeName}</p>
+            <p className="Clg-name">
+            {userData.fieldOfStudy}, <span>{userData.passoutYear}</span>
+            </p>
 
             <h3 className="profile-detailed-head">Languages</h3>
-            <p className="lang">English</p>
-            <p className="lang">Hindi</p>
+            <p className="lang">{userData.language1}</p>
+            <p className="lang">{userData.language2}</p>
           </div>
         </main>
       </div>
     </>
-
   );
 }
 
