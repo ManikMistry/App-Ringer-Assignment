@@ -3,10 +3,11 @@ import { Avatar } from "@mui/material";
 import "./Left.css";
 import Left2 from "./Left2";
 
-function Left({onUserDataChange,onExperiencesChange}) {
-  const [skills, setSkills] = useState([]);
+function Left({onUserDataChange,onExperiencesChange,onSkillsChange}) {
+  const [skills, setSkills] = useState([
+  ]);
   const [newSkill, setNewSkill] = useState("");
-  const [proficiency, setProficiency] = useState(70);
+  const [proficiency, setProficiency] = useState(0);
 
   const handleAddSkill = () => {
     if (newSkill.trim() === "") {
@@ -16,12 +17,15 @@ function Left({onUserDataChange,onExperiencesChange}) {
     const newSkills = [...skills, { skill: newSkill, proficiency }];
     setSkills(newSkills);
     setNewSkill("");
-    // console.log(skills);
+
+    onSkillsChange(newSkills);
   };
 
   const handleRemoveSkill = (index) => {
     const updatedSkills = skills.filter((_, i) => i !== index);
     setSkills(updatedSkills);
+    onSkillsChange(updatedSkills);
+    setUserData((prevUserData) => ({ ...prevUserData, skills: updatedSkills }));
   };
   const [userData, setUserData] = useState({
     jobTitle: "",
@@ -41,8 +45,9 @@ function Left({onUserDataChange,onExperiencesChange}) {
     fieldOfStudy: "",
     passoutYear: "",
     avatar:null,
-    proficiency,
-    desc:""
+    proficiency:"",
+    desc:"",
+    skills:""
   });
 
   const handleInputChange = (field, value) => {
@@ -194,7 +199,6 @@ function Left({onUserDataChange,onExperiencesChange}) {
                 onChange={(e) => handleInputChange('leetCode', e.target.value)}
                  />
               </div>
-              {/* <div className="title">Skills</div> */}
               <div className="input_pox">
                 <span className="datails">Language 1</span>
                 <input 

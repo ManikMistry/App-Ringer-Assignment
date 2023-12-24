@@ -16,7 +16,7 @@ const GradientComponent = ({ percentage }) => {
     bottom: "0",
     width: "100%",
     height: "100%",
-    background: `linear-gradient(to right, #ff0000 0%, #ff0000 ${percentage}, #ffffff ${percentage}, #ffffff 100%)`,
+    background: `linear-gradient(to right, #ff0000 0%, #ff0000 ${percentage}%, #ffffff ${percentage}%, #ffffff 100%)`,
   };
 
   return (

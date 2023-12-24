@@ -21,17 +21,23 @@ const Resume = () => {
     collegeName: "",
     fieldOfStudy: "",
     passoutYear: "",
+    skills: []
   });
 
   const [experiences, setExperiences] = useState([]);
+  const [skills, setSkills] = useState([]);
 
   const handleUserDataChange = (newData) => {
-    console.log(newData)
     setUserData(newData);
   };
 
   const handleExperiencesChange = (newExperiences) => {
     setExperiences(newExperiences);
+  };
+
+  const handleSkillsChange = (newSkills) => {
+    setSkills(newSkills);
+    setUserData((prevUserData) => ({ ...prevUserData, skills: newSkills }));
   };
 
   return (
@@ -40,8 +46,12 @@ const Resume = () => {
         <Left
           onUserDataChange={handleUserDataChange}
           onExperiencesChange={handleExperiencesChange}
+          onSkillsChange={handleSkillsChange}
         />
-        <Right userData={userData} experiences={experiences} />
+        <Right 
+        userData={userData} 
+        experiences={experiences} 
+        skills={skills} />
       </div>
     </>
   );

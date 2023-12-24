@@ -25,6 +25,7 @@ header button{
 .review-container {
     height: 114vh;
     background-color: rgb(80, 79, 79);
+    padding-left: 50px;
   }
 
 .dropdown {
@@ -70,8 +71,7 @@ header button{
   }
 
   .circle-frame{
-     /* padding: 39px; */
-     padding: 18px 0px 0px 50px;
+    padding: 18px 0px 0px 35px;
   }
 
   .circle-frame img{
@@ -148,4 +148,3 @@ li,.desc,.lang, .Clg-name{
   font-weight: 600;
   color: rgb(93, 93, 93);
 }
-

@@ -56,3 +56,26 @@
     margin-left: 193px;
     margin-bottom: 10px;
 }
+
+    /* width: 78%; */
+
+
+
+ @media (max-width : 768px) {
+    .input_box1 input{
+    width: 61vw;
+    height: 40px;
+    border: none;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+    height: 45px;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 10px;
+    background-color: #e7e7e7;
+    font-size: 16px;
+    margin-left: 193px;
+    margin-bottom: 10px;
+    }
+ } 

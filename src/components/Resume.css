@@ -12,3 +12,13 @@
   grid-row-gap: 0px;
 }
 
+
+ @media (max-width : 768px) {
+   .main-container{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+   }
+} 

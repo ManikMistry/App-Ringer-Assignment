@@ -34,10 +34,6 @@ const Left2 = ({onExperiencesChange}) => {
     newBullets[index] = value;
     setBullets(newBullets);
   };
-  const formatDateString = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
 
   return (
     <div className='container1'>
@@ -100,10 +96,13 @@ const Left2 = ({onExperiencesChange}) => {
       <h3>Experiences:</h3>
       <ul>
         {experiences.map((experience, index) => (
+          <>
+
+          
           <li key={index}>
             <strong>{experience.companyName}</strong> - {experience.role}
             <p>
-              {formatDateString(experience.startDate)} to {formatDateString(experience.endDate)}
+              {experience.startDate} to {experience.endDate}
             </p>
             <ul>
               {experience.bullets.map((bullet, idx) => (
@@ -111,6 +110,7 @@ const Left2 = ({onExperiencesChange}) => {
               ))}
             </ul>
           </li>
+          </>
         ))}
       </ul>
     </div>
